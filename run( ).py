@@ -7,7 +7,7 @@ username = '/user:can'
 password = 'freedom'
 
 # Disconnect any existing connections to avoid error 1219
-run(
+subprocess.run(
     ['net', 'use', unc_path, '/delete'], 
     shell=True, 
     stdout=subprocess.DEVNULL, 
@@ -16,7 +16,7 @@ run(
 
 # Connect to the UNC path with credentials
 try:
-    run(
+    subprocess.run(
         ['net', 'use', unc_path, password, username],
         shell=True,
         check=True
